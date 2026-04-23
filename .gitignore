@@ -75,3 +75,9 @@ Thumbs.db
 .web
 .jpg
 .png
+
+#virtual env
+.venv
+
+#Agent
+.claude
