@@ -13,9 +13,6 @@ SPIDER_MODULES = ["scraper_web.spiders"]
 NEWSPIDER_MODULE = "scraper_web.spiders"
 
 IMAGES_STORE = 'images'
-ITEM_PIPELINES = {
-    'scrapy.pipelines.images.ImagesPipeline': 1,
-}
 
 ADDONS = {}
 
