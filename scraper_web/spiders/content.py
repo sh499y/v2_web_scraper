@@ -25,11 +25,10 @@ class Content(scrapy.Spider):
             return
         self.visited.add(response.url)
 
-        images = self.extract_images(response)
         yield {
             'page': response.url,
-            'image_urls': images,
-            'total_images': len(images),
+            # TODO: dodac pobieranie obrazow - uzyc ImagesPipeline + metoda extract_images()
+            # potrzebne klucze wুitem: 'image_urls' (lista URL) i 'images' (wynik pipeline)
             'meta_data': self.meta_data(response),
             'schema_org': self.extract_schema_org(response),
             'content': self.get_text(response),
@@ -103,7 +102,3 @@ class Content(scrapy.Spider):
                     name = domain.split('.')[0]
                     links[name] = href
         return links
-
-    def extract_images(self, response):
-        image_urls = response.css('img::attr(src)').getall()
-        return [response.urljoin(url) for url in image_urls]

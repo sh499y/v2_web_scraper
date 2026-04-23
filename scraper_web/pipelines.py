@@ -1,3 +1,4 @@
+from io import BytesIO
 from itemadapter import ItemAdapter
 from scrapy.pipelines.images import ImagesPipeline
 from urllib.parse import urlparse
@@ -13,5 +14,5 @@ class CustomImagesPipeline(ImagesPipeline):
 
     def convert_image(self, image, size=None, *, response_body):
         if size is None:
-            return image, response_body
+            return image, BytesIO(response_body)
         return super().convert_image(image, size, response_body=response_body)
