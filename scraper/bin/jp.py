@@ -1,4 +1,4 @@
-#!/home/shaggy/Documents/python/profile_website_scraper/scraper/bin/python
+#!/home/shaggy/Documents/python/v2_web_scraper/scraper/bin/python
 
 import sys
 import json
